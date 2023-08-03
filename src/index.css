@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.star-style {
+  /* font-size: 1.2rem; */
+  cursor: pointer;
+  color: gold;
+}
