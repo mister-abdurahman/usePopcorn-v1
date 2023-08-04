@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import reactLogo from "./assets/react.svg";
 import NavBar from "./components/NavBar";
 import Box from "./components/Box";
 import Movies from "./components/Movies";
@@ -85,6 +84,20 @@ function App() {
     [watchedMovies]
   );
 
+  useEffect(
+    function () {
+      const titleToDisplay = movies.find((el: any) => el.imdbID === selectedId);
+      // console.log(titleToDisplay.Title);
+      if (titleToDisplay) {
+        document.title = `usePopcorn | ${titleToDisplay.Title}`;
+      }
+      return function () {
+        document.title = "usePopcorn | Movies";
+      };
+    },
+    [selectedId]
+  );
+
   function handleCloseMovie() {
     setSelectedId(null);
   }
@@ -133,5 +146,3 @@ function App() {
 }
 
 export default App;
-
-// A movies website like the popular IMDB that displays movies based on your search with their information and other useful funcitonalities.
