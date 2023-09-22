@@ -86,7 +86,9 @@ function App() {
 
   useEffect(
     function () {
-      const titleToDisplay = movies.find((el: any) => el.imdbID === selectedId);
+      const titleToDisplay: any = movies.find(
+        (el: any) => el.imdbID === selectedId
+      );
       // console.log(titleToDisplay.Title);
       if (titleToDisplay) {
         document.title = `usePopcorn | ${titleToDisplay.Title}`;
